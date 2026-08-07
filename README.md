@@ -27,7 +27,7 @@ practice, and build while learning Data Science.
 
 | Day | Topic | What I Learned |
 |---|---|---|
-| Day 1 | - | Starting my DS/DA journey |
+| Day 1 | Start Python | Starting my DS/DA journey |
 
 ---
 
