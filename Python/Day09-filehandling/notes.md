@@ -19,8 +19,8 @@ Python uses the `open()` function to open a file.
 ```python
 open("filename.txt", "mode")
 file = open("data.txt", "r")
-
-3. File Modes
+---
+## 3. File Modes
 Mode	Meaning
 r	Read
 w	Write
@@ -43,7 +43,9 @@ a — Append
 Adds new data at the end.
 
 file = open("data.txt", "a")
-4. Reading a File
+---
+
+## 4. Reading a File
 read()
 
 Reads the complete file.
@@ -84,7 +86,9 @@ print(data)
 
 
 file.close()
-5. Writing to a File
+---
+
+## 5. Writing to a File
 
 Use w mode.
 
@@ -97,8 +101,9 @@ file.write("Hello Python")
 file.close()
 
 ⚠️ w mode removes the old content and writes new content.
+---
 
-6. Appending to a File
+##6. Appending to a File
 
 Use a mode.
 
@@ -111,8 +116,8 @@ file.write("\nLearning Python")
 file.close()
 
 a adds data without removing the existing content.
-
-7. Using with open()
+---
+## 7. Using with open()
 
 The recommended way to work with files is:
 
@@ -125,20 +130,22 @@ Python automatically closes the file.
 So we don't need:
 
 file.close()
-8. Writing Multiple Lines
+---
+##8. Writing Multiple Lines
 with open("data.txt", "w") as file:
     file.write("Python\n")
     file.write("Java\n")
     file.write("SQL\n")
-
-9. Reading Using a Loop
+---
+##9. Reading Using a Loop
 with open("data.txt", "r") as file:
     for line in file:
         print(line)
 
 This is useful when a file contains many lines.
+---
 
-10. File Path
+## 10. File Path
 
 If the file is in the same folder:
 
@@ -147,7 +154,8 @@ open("data.txt", "r")
 If the file is inside another folder:
 
 open("data/data.txt", "r")
-11. Important Difference
+
+## 11. Important Difference
 read()
 
 Returns the complete content.
@@ -163,7 +171,8 @@ readlines()
 Returns all lines as a list.
 
 lines = file.readlines()
-12. Important Points
+---
+## 12. Important Points
 open() is used to open a file.
 r means read.
 w means write and replaces old content.
@@ -174,14 +183,17 @@ readlines() returns all lines as a list.
 write() writes data into a file.
 with open() automatically closes the file.
 Always use with open() when possible.
-13. Basic Syntax
+---
+## 13. Basic Syntax
 with open("filename.txt", "mode") as file:
     # file operation
 
 Example:
 
 with open("data.txt", "r") as file:
-    print(file.read())
+    print(file.read
+---
+
 Quick Revision
 open()      → Open file
 r           → Read
