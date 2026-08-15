@@ -34,7 +34,7 @@ w — Write
 
 Used to write data.
 
-⚠️ It replaces existing content.
+---->>>> It replaces existing content.
 
 file = open("data.txt", "w")
 a — Append
@@ -99,7 +99,7 @@ file.write("Hello Python")
 
 file.close()
 
-⚠️ w mode removes the old content and writes new content.
+----->>>> w mode removes the old content and writes new content.
 ---
 
 ##6. Appending to a File
@@ -130,11 +130,13 @@ So we don't need:
 
 file.close()
 ---
-##8. Writing Multiple Lines
+## 8. Writing Multiple Lines
+```
 with open("data.txt", "w") as file:
     file.write("Python\n")
     file.write("Java\n")
     file.write("SQL\n")
+```
 ---
 ##9. Reading Using a Loop
 with open("data.txt", "r") as file:
@@ -172,6 +174,7 @@ Returns all lines as a list.
 lines = file.readlines()
 ---
 ## 12. Important Points
+```
 open() is used to open a file.
 r means read.
 w means write and replaces old content.
@@ -182,6 +185,7 @@ readlines() returns all lines as a list.
 write() writes data into a file.
 with open() automatically closes the file.
 Always use with open() when possible.
+```
 ---
 ## 13. Basic Syntax
 with open("filename.txt", "mode") as file:
