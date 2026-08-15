@@ -2,9 +2,10 @@
 
 ## 1. What is File Handling?
 
-File handling means **creating, reading, writing, and modifying files using Python**.
+File Handling means **creating, reading, writing, and modifying files using Python**.
 
-Python can work with files like:
+Python can work with different types of files:
+
 - `.txt`
 - `.csv`
 - `.json`
@@ -16,194 +17,258 @@ Python can work with files like:
 
 Python uses the `open()` function to open a file.
 
-open("filename.txt", "mode")
-file = open("data.txt", "r")
+### Syntax
+
+    open("filename", "mode")
+
+### Example
+
+    file = open("data.txt", "r")
+
 ---
+
 ## 3. File Modes
-Mode	Meaning
-r	Read
-w	Write
-a	Append
-x	Create a new file
-r — Read
 
-Used to read existing data.
+| Mode | Meaning |
+|------|---------|
+| `r` | Read the file |
+| `w` | Write to the file |
+| `a` | Append data to the file |
+| `x` | Create a new file |
 
-file = open("data.txt", "r")
-w — Write
+### `r` — Read
 
-Used to write data.
+Used to read an existing file.
 
----->>>> It replaces existing content.
+    file = open("data.txt", "r")
 
-file = open("data.txt", "w")
-a — Append
+### `w` — Write
 
-Adds new data at the end.
+Used to write data into a file.
 
-file = open("data.txt", "a")
+-->>> Existing content will be replaced.
+
+    file = open("data.txt", "w")
+
+### `a` — Append
+
+Adds new data at the end of the file.
+
+    file = open("data.txt", "a")
+
+### `x` — Create
+
+Creates a new file.
+
+    file = open("newfile.txt", "x")
+
 ---
 
-## 4. Reading a File
-read()
+## 5. Reading a File
+
+### `read()`
 
 Reads the complete file.
 
-file = open("data.txt", "r")
+    with open("data.txt", "r") as file:
+        data = file.read()
+        print(data)
 
-
-data = file.read()
-
-
-print(data)
-
-
-file.close()
-readline()
+### `readline()`
 
 Reads one line at a time.
 
-file = open("data.txt", "r")
+    with open("data.txt", "r") as file:
+        print(file.readline())
+        print(file.readline())
 
-
-print(file.readline())
-print(file.readline())
-
-
-file.close()
-readlines()
+### `readlines()`
 
 Reads all lines and returns them as a list.
 
-file = open("data.txt", "r")
+    with open("data.txt", "r") as file:
+        lines = file.readlines()
+        print(lines)
 
-
-data = file.readlines()
-
-
-print(data)
-
-
-file.close()
 ---
 
-## 5. Writing to a File
+## 6. Writing to a File
 
-Use w mode.
+Use `write()` with `w` mode.
 
-file = open("data.txt", "w")
+    with open("data.txt", "w") as file:
+        file.write("Hello Python")
 
+-->> `w` mode removes the old content before writing.
 
-file.write("Hello Python")
-
-
-file.close()
-
------>>>> w mode removes the old content and writes new content.
 ---
 
-##6. Appending to a File
+## 6. Appending to a File
 
-Use a mode.
+Use `a` mode to add content without deleting existing content.
 
-file = open("data.txt", "a")
+    with open("data.txt", "a") as file:
+        file.write("\nLearning Python")
 
-
-file.write("\nLearning Python")
-
-
-file.close()
-
-a adds data without removing the existing content.
 ---
-## 7. Using with open()
+
+## 7. Writing Multiple Lines
+
+Use `\n` to create a new line.
+
+    with open("data.txt", "w") as file:
+        file.write("Python\n")
+        file.write("Java\n")
+        file.write("SQL\n")
+
+---
+
+## 8. Using `with open()`
 
 The recommended way to work with files is:
 
-with open("data.txt", "r") as file:
+    with open("data.txt", "r") as file:
+        data = file.read()
+        print(data)
+
+The file is automatically closed after the `with` block.
+
+### Without `with`
+
+    file = open("data.txt", "r")
+
     data = file.read()
+
     print(data)
 
-Python automatically closes the file.
+    file.close()
 
-So we don't need:
+### With `with`
 
-file.close()
+    with open("data.txt", "r") as file:
+        print(file.read())
+
+`with open()` is safer and easier because Python automatically closes the file.
+
 ---
-## 8. Writing Multiple Lines
-```
-with open("data.txt", "w") as file:
-    file.write("Python\n")
-    file.write("Java\n")
-    file.write("SQL\n")
-```
----
-##9. Reading Using a Loop
-with open("data.txt", "r") as file:
-    for line in file:
-        print(line)
 
-This is useful when a file contains many lines.
+## 9. Reading File Line by Line
+
+We can use a `for` loop to read each line.
+
+    with open("data.txt", "r") as file:
+        for line in file:
+            print(line)
+
+This is useful when working with large files.
+
 ---
 
 ## 10. File Path
 
-If the file is in the same folder:
+### File in the same folder
 
-open("data.txt", "r")
+    open("data.txt", "r")
 
-If the file is inside another folder:
+### File inside another folder
 
-open("data/data.txt", "r")
+    open("data/data.txt", "r")
 
-## 11. Important Difference
-read()
-
-Returns the complete content.
-
-data = file.read()
-readline()
-
-Returns one line.
-
-line = file.readline()
-readlines()
-
-Returns all lines as a list.
-
-lines = file.readlines()
----
-## 12. Important Points
-```
-open() is used to open a file.
-r means read.
-w means write and replaces old content.
-a means append.
-read() reads the complete file.
-readline() reads one line.
-readlines() returns all lines as a list.
-write() writes data into a file.
-with open() automatically closes the file.
-Always use with open() when possible.
-```
----
-## 13. Basic Syntax
-with open("filename.txt", "mode") as file:
-    # file operation
-
-Example:
-
-with open("data.txt", "r") as file:
-    print(file.read
 ---
 
-Quick Revision
-open()      → Open file
-r           → Read
-w           → Write / Replace
-a           → Append
-read()      → Read everything
-readline()  → Read one line
-readlines() → Read all lines as list
-write()     → Write data
-with open() → Automatically closes file
+## 11. `read()` vs `readline()` vs `readlines()`
+| Function | Purpose | Returns |
+|----------|---------|---------|
+| `read()` | Reads complete file | String |
+| `readline()` | Reads one line | String |
+| `readlines()` | Reads all lines | List |
+
+---
+
+## 12. `w` vs `a`
+
+| Mode | Existing Data | New Data |
+|------|---------------|----------|
+| `w` | Replaced ❌ | Written ✅ |
+| `a` | Kept ✅ | Added at end ✅ |
+
+---
+
+## 13. Example
+
+Suppose `data.txt` contains:
+
+    Priyanshi
+    Python
+    Data Science
+
+Python code:
+
+    with open("data.txt", "r") as file:
+        data = file.read()
+
+    print(data)
+
+Output:
+
+    Priyanshi
+    Python
+    Data Science
+
+---
+
+## Important Points
+
+- `open()` is used to open a file.
+- `r` is used for reading.
+- `w` is used for writing and replacing content.
+- `a` is used for appending.
+- `x` is used to create a new file.
+- `read()` reads the complete file.
+- `readline()` reads one line.
+- `readlines()` returns all lines as a list.
+- `write()` writes data into a file.
+- `with open()` automatically closes the file.
+- `\n` creates a new line.
+
+---
+
+##  Quick Revision
+
+| Function / Mode | Use |
+|-----------------|-----|
+| `open()` | Open a file |
+| `r` | Read |
+| `w` | Write / Replace |
+| `a` | Append |
+| `x` | Create |
+| `read()` | Read everything |
+| `readline()` | Read one line |
+| `readlines()` | Read all lines |
+| `write()` | Write data |
+| `with open()` | Safe file handling |
+
+---
+
+##  Why File Handling is Important?
+
+File handling is important because programs often need to work with external data.
+
+Later, this will help when working with:
+
+- CSV files
+- JSON files
+- Excel files
+- Datasets
+- Logs
+- Data Science projects
+
+### Basic Flow
+
+    File
+      ↓
+    open()
+      ↓
+    Read / Write / Append
+      ↓
+    Process Data
