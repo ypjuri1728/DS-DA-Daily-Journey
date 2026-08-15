@@ -16,7 +16,6 @@ Python can work with files like:
 
 Python uses the `open()` function to open a file.
 
-```python
 open("filename.txt", "mode")
 file = open("data.txt", "r")
 ---
