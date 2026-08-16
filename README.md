@@ -27,7 +27,16 @@ practice, and build while learning Data Science.
 
 | Day | Topic | What I Learned |
 |---|---|---|
-| Day 1 | Start Python | Starting my DS/DA journey |
+| Day 1 | Python Basics | Python fundamentals and syntax |
+| Day 2 | Python Basics | Variables, data types and operators |
+| Day 3 | Control Flow | `if`, `elif`, `else` and conditions |
+| Day 4 | Loops | `for`, `while`, `break` and `continue` |
+| Day 5 | Lists | Creating, accessing and modifying lists |
+| Day 6 | Tuples | Tuple operations and methods |
+| Day 7 | Sets | Set operations and methods |
+| Day 8 | Dictionary | Dictionary creation, methods and operations |
+| Day 9 | File Handling | Reading, writing and modifying files |
+| Day 10 | Exception Handling | `try`, `except`, `else`, `finally` and `raise` |
 
 ---
 
