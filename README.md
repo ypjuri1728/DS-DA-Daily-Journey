@@ -44,6 +44,7 @@ practice, and build while learning Data Science.
 |-----|----------------------------|
 | 01  | Basics - SELECT, FROM   | 
 | 02  | SQL - WHERE Clause & Operators | 
+| 03  | Functions + GROUP BY  | 
 
 
 ---
