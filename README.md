@@ -23,7 +23,7 @@ practice, and build while learning Data Science.
 - [ ] Data Analysis
 - [ ] Machine Learning
 
-## 📝 Daily Progress
+## 📝 Daily Progress-python
 
 | Day | Topic | What I Learned |
 |---|---|---|
@@ -37,6 +37,14 @@ practice, and build while learning Data Science.
 | Day 8 | Dictionary | Dictionary creation, methods and operations |
 | Day 9 | File Handling | Reading, writing and modifying files |
 | Day 10 | Exception Handling | `try`, `except`, `else`, `finally` and `raise` |
+
+## 📅 Daily Progress-sql
+
+| Day | Topic Covered              
+|-----|----------------------------|
+| 01  | Basics - SELECT, FROM   | 
+| 02  | SQL - WHERE Clause & Operators | 
+
 
 ---
 
