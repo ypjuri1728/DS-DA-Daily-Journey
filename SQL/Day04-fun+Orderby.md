@@ -1,272 +1,58 @@
-*# Day 03 — SQL Functions + ORDER BY
+# Day 03 — SQL ORDER BY + DISTINCT + LIMIT + CASE
 
-## 1. SQL Functions
+## 1. ORDER BY
 
-SQL functions are built-in operations used to perform calculations, modify data, or get useful information from rows.
-
-There are two main types:
-
-* **Aggregate Functions** → work on multiple rows and return one result.
-* **Scalar/String/Date Functions** → work on individual values/rows.
-
----
-
-## 2. Aggregate Functions
-
-Aggregate functions are commonly used with `GROUP BY`.
-
-### COUNT()
-
-Counts the number of rows.
-
-```sql
-SELECT COUNT(*) 
-FROM student;
-```
-
-Count a specific column:
-
-```sql
-SELECT COUNT(name)
-FROM student;
-```
-
-> `COUNT(*)` counts all rows, while `COUNT(column)` ignores `NULL` values.
-
----
-
-### SUM()
-
-Returns the total of a numeric column.
-
-```sql
-SELECT SUM(salary)
-FROM employee;
-```
-
----
-
-### AVG()
-
-Returns the average value.
-
-```sql
-SELECT AVG(salary)
-FROM employee;
-```
-
----
-
-### MAX()
-
-Returns the highest value.
-
-```sql
-SELECT MAX(salary)
-FROM employee;
-```
-
----
-
-### MIN()
-
-Returns the lowest value.
-
-```sql
-SELECT MIN(salary)
-FROM employee;
-```
-
----
-
-## 3. Using Multiple Aggregate Functions
-
-```sql
-SELECT 
-    COUNT(*) AS total_employees,
-    SUM(salary) AS total_salary,
-    AVG(salary) AS average_salary,
-    MAX(salary) AS highest_salary,
-    MIN(salary) AS lowest_salary
-FROM employee;
-```
-
-`AS` is used to give a temporary name (alias) to the result.
-
----
-
-# 4. String Functions
-
-String functions are used to work with text.
-
-### UPPER()
-
-Converts text to uppercase.
-
-```sql
-SELECT UPPER(name)
-FROM student;
-```
-
-Example:
-
-```text
-Priyanshi → PRIYANSHI
-```
-
----
-
-### LOWER()
-
-Converts text to lowercase.
-
-```sql
-SELECT LOWER(name)
-FROM student;
-```
-
----
-
-### LENGTH()
-
-Returns the number of characters.
-
-```sql
-SELECT name, LENGTH(name)
-FROM student;
-```
-
----
-
-### CONCAT()
-
-Combines multiple strings.
-
-```sql
-SELECT CONCAT(first_name, ' ', last_name) AS full_name
-FROM student;
-```
-
----
-
-# 5. Numeric Functions
-
-### ROUND()
-
-Rounds a decimal value.
-
-```sql
-SELECT ROUND(AVG(salary), 2)
-FROM employee;
-```
-
-Example:
-
-```text
-24567.678 → 24567.68
-```
-
----
-
-### CEIL()
-
-Rounds a number upward.
-
-```sql
-SELECT CEIL(10.2);
-```
-
-Output:
-
-```text
-11
-```
-
----
-
-### FLOOR()
-
-Rounds a number downward.
-
-```sql
-SELECT FLOOR(10.8);
-```
-
-Output:
-
-```text
-10
-```
-
----
-
-# 6. ORDER BY
-
-`ORDER BY` is used to **sort the result**.
+`ORDER BY` is used to **sort the result** of a query.
 
 ### Ascending Order
 
+Smallest → Largest / A → Z
+
 ```sql
 SELECT *
-FROM student
-ORDER BY marks ASC;
+FROM employee
+ORDER BY salary ASC;
 ```
-
-`ASC` means smallest → largest.
 
 `ASC` is the default, so this also works:
 
 ```sql
 SELECT *
-FROM student
-ORDER BY marks;
+FROM employee
+ORDER BY salary;
 ```
-
----
 
 ### Descending Order
 
-```sql
-SELECT *
-FROM student
-ORDER BY marks DESC;
-```
-
-`DESC` means largest → smallest.
-
----
-
-# 7. ORDER BY with Multiple Columns
-
-We can sort using more than one column.
+Largest → Smallest / Z → A
 
 ```sql
 SELECT *
-FROM student
-ORDER BY marks DESC, name ASC;
-```
-
-SQL first sorts by `marks`.
-
-If two students have the same marks, it sorts those students by `name`.
-
----
-
-# 8. ORDER BY with SELECT
-
-```sql
-SELECT name, salary
 FROM employee
 ORDER BY salary DESC;
 ```
 
-This displays employees from **highest salary to lowest salary**.
+---
+
+## 2. ORDER BY Multiple Columns
+
+We can sort by more than one column.
+
+```sql
+SELECT name, department, salary
+FROM employee
+ORDER BY department ASC, salary DESC;
+```
+
+First, employees are sorted by `department`.
+
+If two employees belong to the same department, they are sorted by `salary` from highest to lowest.
 
 ---
 
-# 9. ORDER BY with WHERE
+## 3. ORDER BY with WHERE
 
-`WHERE` filters the rows first, then `ORDER BY` sorts the filtered result.
+`WHERE` filters the rows, and `ORDER BY` sorts the filtered result.
 
 ```sql
 SELECT name, salary
@@ -275,45 +61,90 @@ WHERE salary > 30000
 ORDER BY salary DESC;
 ```
 
-Meaning:
+### Execution idea
 
-1. Select employees.
-2. Keep only employees with salary greater than `30000`.
-3. Sort them by salary from highest to lowest.
+```text
+FROM → WHERE → ORDER BY
+```
 
 ---
 
-# 10. ORDER BY with Aggregate Functions
+## 4. ORDER BY with Alias
 
-We can sort using an aggregate result.
+We can give a calculated column an alias using `AS` and then sort using that alias.
 
 ```sql
-SELECT department, AVG(salary) AS avg_salary
+SELECT name, salary * 12 AS annual_salary
 FROM employee
-GROUP BY department
-ORDER BY avg_salary DESC;
+ORDER BY annual_salary DESC;
 ```
 
-This shows departments from **highest average salary to lowest average salary**.
-
-We can also write:
-
-```sql
-ORDER BY AVG(salary) DESC;
-```
+This sorts employees by their annual salary.
 
 ---
 
-# 11. DISTINCT
+# 5. LIMIT
 
-`DISTINCT` removes duplicate values.
+`LIMIT` is used to restrict the number of rows returned.
+
+```sql
+SELECT *
+FROM employee
+LIMIT 5;
+```
+
+Returns only 5 rows.
+
+### Top 3 Highest Salaries
+
+```sql
+SELECT name, salary
+FROM employee
+ORDER BY salary DESC
+LIMIT 3;
+```
+
+### Top 5 Students
+
+```sql
+SELECT name, marks
+FROM student
+ORDER BY marks DESC
+LIMIT 5;
+```
+
+### Bottom 3 Salaries
+
+```sql
+SELECT name, salary
+FROM employee
+ORDER BY salary ASC
+LIMIT 3;
+```
+
+### Important Pattern
+
+```sql
+SELECT columns
+FROM table_name
+ORDER BY column_name DESC
+LIMIT N;
+```
+
+This pattern is commonly used for **Top N problems**.
+
+---
+
+# 6. DISTINCT
+
+`DISTINCT` removes duplicate values from the result.
 
 ```sql
 SELECT DISTINCT department
 FROM employee;
 ```
 
-Example:
+If the table contains:
 
 ```text
 IT
@@ -323,7 +154,7 @@ Sales
 HR
 ```
 
-Result:
+The result will be:
 
 ```text
 IT
@@ -333,7 +164,7 @@ Sales
 
 ---
 
-# 12. DISTINCT + ORDER BY
+## DISTINCT with ORDER BY
 
 ```sql
 SELECT DISTINCT department
@@ -345,19 +176,185 @@ This gives unique departments in alphabetical order.
 
 ---
 
-# 13. LIMIT
+# 7. NULL Values
 
-`LIMIT` restricts the number of rows returned.
+`NULL` represents a missing or unknown value.
+
+We should **not** use:
+
+```sql
+WHERE phone = NULL;
+```
+
+Instead, use `IS NULL`.
+
+### Find NULL values
 
 ```sql
 SELECT *
 FROM employee
+WHERE phone IS NULL;
+```
+
+### Find non-NULL values
+
+```sql
+SELECT *
+FROM employee
+WHERE phone IS NOT NULL;
+```
+
+---
+
+# 8. COALESCE()
+
+`COALESCE()` is used to replace `NULL` with another value.
+
+```sql
+SELECT name,
+       COALESCE(phone, 'Not Available') AS phone
+FROM employee;
+```
+
+If `phone` is `NULL`, the result will show:
+
+```text
+Not Available
+```
+
+instead of `NULL`.
+
+### Another Example
+
+```sql
+SELECT name,
+       COALESCE(salary, 0) AS salary
+FROM employee;
+```
+
+If salary is `NULL`, it displays `0`.
+
+---
+
+# 9. CASE WHEN
+
+`CASE` is used to create conditional logic inside SQL.
+
+It works similar to `if-else`.
+
+### Syntax
+
+```sql
+CASE
+    WHEN condition THEN result
+    WHEN condition THEN result
+    ELSE result
+END
+```
+
+### Example
+
+```sql
+SELECT name, salary,
+       CASE
+           WHEN salary >= 50000 THEN 'High'
+           WHEN salary >= 30000 THEN 'Medium'
+           ELSE 'Low'
+       END AS salary_category
+FROM employee;
+```
+
+Example result:
+
+| name  | salary | salary_category |
+| ----- | -----: | --------------- |
+| Rahul |  60000 | High            |
+| Aman  |  40000 | Medium          |
+| Raj   |  20000 | Low             |
+
+---
+
+# 10. CASE with Marks
+
+```sql
+SELECT name, marks,
+       CASE
+           WHEN marks >= 90 THEN 'A'
+           WHEN marks >= 75 THEN 'B'
+           WHEN marks >= 60 THEN 'C'
+           ELSE 'D'
+       END AS grade
+FROM student;
+```
+
+---
+
+# 11. CASE with ORDER BY
+
+We can also sort using a `CASE` expression.
+
+```sql
+SELECT name, salary,
+       CASE
+           WHEN salary >= 50000 THEN 'High'
+           WHEN salary >= 30000 THEN 'Medium'
+           ELSE 'Low'
+       END AS category
+FROM employee
+ORDER BY salary DESC;
+```
+
+---
+
+# 12. Important Combined Queries
+
+### Top 5 employees earning more than 30,000
+
+```sql
+SELECT name, salary
+FROM employee
+WHERE salary > 30000
+ORDER BY salary DESC
 LIMIT 5;
 ```
 
-Returns only the first 5 rows.
+### Unique departments in alphabetical order
 
-### Top 3 Salaries
+```sql
+SELECT DISTINCT department
+FROM employee
+ORDER BY department ASC;
+```
+
+### Employees with missing phone numbers
+
+```sql
+SELECT name, phone
+FROM employee
+WHERE phone IS NULL;
+```
+
+### Replace NULL phone numbers
+
+```sql
+SELECT name,
+       COALESCE(phone, 'Not Available') AS phone
+FROM employee;
+```
+
+### Categorize employees by salary
+
+```sql
+SELECT name, salary,
+       CASE
+           WHEN salary >= 50000 THEN 'High'
+           WHEN salary >= 30000 THEN 'Medium'
+           ELSE 'Low'
+       END AS category
+FROM employee;
+```
+
+### Top 3 salaries with names
 
 ```sql
 SELECT name, salary
@@ -366,27 +363,25 @@ ORDER BY salary DESC
 LIMIT 3;
 ```
 
-This is an important pattern for finding the **top N values**.
-
 ---
 
-# 14. Important SQL Query Order
+# 13. SQL Query Order
 
-Remember the logical order:
+A useful order to remember:
 
 ```text
 FROM
-↓
+  ↓
 WHERE
-↓
+  ↓
 GROUP BY
-↓
+  ↓
 HAVING
-↓
+  ↓
 SELECT
-↓
+  ↓
 ORDER BY
-↓
+  ↓
 LIMIT
 ```
 
@@ -404,132 +399,70 @@ LIMIT 3;
 
 ---
 
-# 15. Important Practice Queries
+# 14. Quick Revision
 
-### Find highest salary
+| Concept       | Purpose                  |
+| ------------- | ------------------------ |
+| `ORDER BY`    | Sorts results            |
+| `ASC`         | Ascending order          |
+| `DESC`        | Descending order         |
+| `LIMIT`       | Restricts number of rows |
+| `DISTINCT`    | Removes duplicates       |
+| `IS NULL`     | Finds NULL values        |
+| `IS NOT NULL` | Finds non-NULL values    |
+| `COALESCE()`  | Replaces NULL            |
+| `CASE WHEN`   | Conditional logic        |
+| `AS`          | Creates an alias         |
 
-```sql
-SELECT MAX(salary)
-FROM employee;
-```
+## Most Important Patterns
 
-### Find lowest salary
-
-```sql
-SELECT MIN(salary)
-FROM employee;
-```
-
-### Find average salary
-
-```sql
-SELECT AVG(salary)
-FROM employee;
-```
-
-### Count employees
+### Sort
 
 ```sql
-SELECT COUNT(*)
-FROM employee;
-```
-
-### Total salary
-
-```sql
-SELECT SUM(salary)
-FROM employee;
-```
-
-### Employees with highest salary first
-
-```sql
-SELECT name, salary
-FROM employee
-ORDER BY salary DESC;
-```
-
-### Employees with lowest salary first
-
-```sql
-SELECT name, salary
-FROM employee
-ORDER BY salary ASC;
-```
-
-### Top 5 highest-paid employees
-
-```sql
-SELECT name, salary
-FROM employee
-ORDER BY salary DESC
-LIMIT 5;
-```
-
-### Unique departments alphabetically
-
-```sql
-SELECT DISTINCT department
-FROM employee
-ORDER BY department ASC;
-```
-
-### Average salary by department
-
-```sql
-SELECT department, AVG(salary) AS avg_salary
-FROM employee
-GROUP BY department
-ORDER BY avg_salary DESC;
-```
-
----
-
-# Quick Revision
-
-| Function / Clause | Purpose                  |
-| ----------------- | ------------------------ |
-| `COUNT()`         | Counts rows              |
-| `SUM()`           | Calculates total         |
-| `AVG()`           | Calculates average       |
-| `MAX()`           | Finds maximum            |
-| `MIN()`           | Finds minimum            |
-| `UPPER()`         | Converts to uppercase    |
-| `LOWER()`         | Converts to lowercase    |
-| `LENGTH()`        | Counts characters        |
-| `CONCAT()`        | Joins strings            |
-| `ROUND()`         | Rounds decimal values    |
-| `DISTINCT`        | Removes duplicates       |
-| `ORDER BY ASC`    | Sorts ascending          |
-| `ORDER BY DESC`   | Sorts descending         |
-| `LIMIT`           | Restricts number of rows |
-
-## Key Patterns to Remember
-
-```sql
--- Highest value
-SELECT MAX(column_name)
-FROM table_name;
-
--- Average
-SELECT AVG(column_name)
-FROM table_name;
-
--- Sort high → low
 SELECT *
 FROM table_name
 ORDER BY column_name DESC;
+```
 
--- Top N
+### Top N
+
+```sql
 SELECT *
 FROM table_name
 ORDER BY column_name DESC
 LIMIT N;
-
--- Group + aggregate + sorting
-SELECT column_name, AVG(value)
-FROM table_name
-GROUP BY column_name
-ORDER BY AVG(value) DESC;
 ```
-**
+
+### Unique values
+
+```sql
+SELECT DISTINCT column_name
+FROM table_name
+ORDER BY column_name;
+```
+
+### NULL check
+
+```sql
+SELECT *
+FROM table_name
+WHERE column_name IS NULL;
+```
+
+### Replace NULL
+
+```sql
+SELECT COALESCE(column_name, 'Default Value')
+FROM table_name;
+```
+
+### Conditional column
+
+```sql
+SELECT column_name,
+       CASE
+           WHEN condition THEN 'Result 1'
+           ELSE 'Result 2'
+       END AS category
+FROM table_name;
+```
