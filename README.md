@@ -46,6 +46,7 @@ practice, and build while learning Data Science.
 | 02  | SQL - WHERE Clause & Operators | 
 | 03  | Functions + GROUP BY  | 
 | 04  | Functions + ORDER BY  | 
+| 05  | JOINS | 
 
 
 ---
