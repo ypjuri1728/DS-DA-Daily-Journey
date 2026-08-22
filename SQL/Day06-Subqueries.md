@@ -1,6 +1,6 @@
 # Day 06 — SQL Subqueries
 
-## 📌 Topic: Subqueries
+##  Topic: Subqueries
 
 A **subquery** is a SQL query written inside another SQL query.
 
@@ -157,7 +157,7 @@ IN      → matching values
 NOT IN  → non-matching values
 ```
 
-> ⚠️ Be careful with `NULL` values when using `NOT IN`, because they can cause unexpected results.
+>  Be careful with `NULL` values when using `NOT IN`, because they can cause unexpected results.
 
 ---
 
@@ -492,7 +492,7 @@ Use that result in outer query
 
 ---
 
-## ⭐ Key Takeaways
+##  Key Takeaways
 
 ```text
 Subquery = Query inside Query
