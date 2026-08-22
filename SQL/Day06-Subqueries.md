@@ -475,46 +475,6 @@ Use that result in outer query
 
 ---
 
-# 13. Practice Questions
-
-Use the `employees` table.
-
-### Q1
-
-Find employees whose salary is greater than the average salary.
-
-### Q2
-
-Find the employee with the highest salary.
-
-### Q3
-
-Find the employee with the lowest salary.
-
-### Q4
-
-Find employees whose salary is less than the average salary.
-
-### Q5
-
-Find employees who belong to departments where at least one employee earns more than `70000`.
-
-### Q6
-
-Find employees whose department is not among the departments containing an employee earning more than `70000`.
-
-### Q7
-
-Find employees whose salary is greater than the average salary of their own department.
-
-### Q8
-
-Write the solution to Q1 using both:
-
-* Subquery
-* JOIN
-
----
 
 # 14. Quick Revision
 
