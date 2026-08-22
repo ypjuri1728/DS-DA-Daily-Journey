@@ -47,6 +47,8 @@ practice, and build while learning Data Science.
 | 03  | Functions + GROUP BY  | 
 | 04  | Functions + ORDER BY  | 
 | 05  | JOINS | 
+| 06  | Subqueries |
+
 
 
 ---
