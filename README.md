@@ -48,6 +48,7 @@ practice, and build while learning Data Science.
 | 04  | Functions + ORDER BY  | 
 | 05  | JOINS | 
 | 06  | Subqueries |
+| 07  | Case Statement |
 
 
 
