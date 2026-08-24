@@ -49,6 +49,7 @@ practice, and build while learning Data Science.
 | 05  | JOINS | 
 | 06  | Subqueries |
 | 07  | Case Statement |
+| 05  | UNION/UNION ALL |
 
 
 
