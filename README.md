@@ -51,6 +51,7 @@ practice, and build while learning Data Science.
 | 07  | Case Statement |
 | 08  | UNION/UNION ALL |
 | 09  | CTE(Common Table Expressions) |
+| 10  | Window Functions |
 
 
 
