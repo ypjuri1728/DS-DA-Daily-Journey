@@ -53,6 +53,12 @@ practice, and build while learning Data Science.
 | 09  | CTE(Common Table Expressions) |
 | 10  | Window Functions |
 
+## 📅 Daily Progress- Pandas
+| Day | Topic | What I Learned |
+|---|---|---|
+| Day 1 | Pandas Basics | Introduction & Basic Filtering|
+
+
 
 
 ---
