@@ -57,6 +57,7 @@ practice, and build while learning Data Science.
 | Day | Topic | What I Learned |
 |---|---|---|
 | Day 1 | Pandas Basics | Introduction & Basic Filtering|
+| Day 1 | Data Basics | DataFrame Basics & Data Inspection |
 
 
 
