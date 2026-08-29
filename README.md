@@ -58,6 +58,7 @@ practice, and build while learning Data Science.
 |---|---|---|
 | 1 | Pandas Basics | Introduction & Basic Filtering|
 | 2 | Data Basics | DataFrame Basics & Data Inspection |
+| 3 | Data Basics | Data Selection & Filtering |
 
 
 
