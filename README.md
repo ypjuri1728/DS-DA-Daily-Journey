@@ -60,7 +60,7 @@ practice, and build while learning Data Science.
 | 2 | Data Basics | DataFrame Basics & Data Inspection |
 | 3 | Data Basics | Data Selection & Filtering |
 | 4 | Data Basics | Data Manipulation|
-| 4 | Data Basics | Data Cleaning |
+| 5 | Data Basics | Data Cleaning |
 
 
 
