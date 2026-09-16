@@ -63,6 +63,7 @@ practice, and build while learning Data Science.
 | 5 | Data Basics | Data Cleaning |
 | 6 | Data Analysis | GroupBy & Aggregation |
 | 7 | Data Analysis | Sorting, Value Counts & Ranking |
+| 8 | DataFrames | Merging & Joining DataFrames |
 
 
 
