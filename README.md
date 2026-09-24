@@ -10,15 +10,6 @@ practice, and build while learning Data Science.
 - Python
 - SQL
 - Pandas
-- Statistics
-- Data Analysis
-- Machine Learning
-
-## 📈 Progress
-
-- [ ] Python
-- [ ] SQL
-- [ ] Pandas
 
 ## 📝 Daily Progress-python
 
