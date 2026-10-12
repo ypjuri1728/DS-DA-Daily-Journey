@@ -1,61 +1,17 @@
 # 📊 DS-DA Daily Journey
 
-My daily learning journey in Data Science and Data Analytics.
+My daily learning journey in Data Science and Data Analytics, documenting concepts, practice, and hands-on exercises.
 
-I am using this repository to document what I learn,
-practice, and build while learning Data Science.
+## 📚 Learning Progress
 
-## 📚 Topics
+| Area      | Topics & Practice                                           |
+| --------- | ----------------------------------------------------------- |
+| 📊 Excel  | Fundamentals, cell referencing, formulas, and data analysis |
+| 🐼 Pandas | Data manipulation, DataFrames, and data analysis            |
+| 🔢 NumPy  | Arrays, indexing, and numerical operations                  |
 
-- Python
-- SQL
-- Pandas
+## 🎯 Goal
 
-## 📝 Daily Progress-python
+Build practical Data Analytics skills through consistent learning, coding, and hands-on practice.
 
-| Day | Topic | What I Learned |
-|---|---|---|
-| Day 1 | Python Basics | Python fundamentals and syntax |
-| Day 2 | Python Basics | Variables, data types and operators |
-| Day 3 | Control Flow | `if`, `elif`, `else` and conditions |
-| Day 4 | Loops | `for`, `while`, `break` and `continue` |
-| Day 5 | Lists | Creating, accessing and modifying lists |
-| Day 6 | Tuples | Tuple operations and methods |
-| Day 7 | Sets | Set operations and methods |
-| Day 8 | Dictionary | Dictionary creation, methods and operations |
-| Day 9 | File Handling | Reading, writing and modifying files |
-| Day 10 | Exception Handling | `try`, `except`, `else`, `finally` and `raise` |
-
-## 📅 Daily Progress-sql
-
-| Day | Topic Covered              
-|-----|----------------------------|
-| 01  | Basics - SELECT, FROM   | 
-| 02  | SQL - WHERE Clause & Operators | 
-| 03  | Functions + GROUP BY  | 
-| 04  | Functions + ORDER BY  | 
-| 05  | JOINS | 
-| 06  | Subqueries |
-| 07  | Case Statement |
-| 08  | UNION/UNION ALL |
-| 09  | CTE(Common Table Expressions) |
-| 10  | Window Functions |
-
-## 📅 Daily Progress- Pandas
-| Day | Topic | What I Learned |
-|---|---|---|
-| 1 | Pandas Basics | Introduction & Basic Filtering|
-| 2 | Data Basics | DataFrame Basics & Data Inspection |
-| 3 | Data Basics | Data Selection & Filtering |
-| 4 | Data Basics | Data Manipulation|
-| 5 | Data Basics | Data Cleaning |
-| 6 | Data Analysis | GroupBy & Aggregation |
-| 7 | Data Analysis | Sorting, Value Counts & Ranking |
-| 8 | DataFrames | Merging & Joining DataFrames |
-
-
-
-
----
-
-⭐ Learning every day. Improving every day.
+More topics, exercises, and projects will be added as I progress.
