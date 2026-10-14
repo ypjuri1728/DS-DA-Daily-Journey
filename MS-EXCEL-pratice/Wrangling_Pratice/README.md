@@ -1,11 +1,11 @@
-# 📊 Excel Data Wrangling Practice
+# Excel Data Wrangling Practice
 
-## 📌 Overview
+## Overview
 
 This folder contains my Microsoft Excel practice work focused on **data wrangling, data cleaning, and data preparation** 
 
 
-## 🎯 Objectives
+## Objectives
 
 * Understand the fundamentals of data wrangling in Excel.
 * Learn to clean and organize spreadsheet data.
@@ -14,7 +14,7 @@ This folder contains my Microsoft Excel practice work focused on **data wranglin
 * Summarize data for analysis and reporting.
 * Develop practical Excel skills for Data Analyst roles.
 
-## 🧠 Topics Covered
+## Topics Covered
 
 | No. | Topic                   | Description                                                     |
 | --- | ----------------------- | --------------------------------------------------------------- |
@@ -27,7 +27,7 @@ This folder contains my Microsoft Excel practice work focused on **data wranglin
 | 7   | Grouping and Ungrouping | Organize rows and columns into expandable groups.               |
 | 8   | Subtotaling             | Calculate summaries such as sums and counts for groups of data. |
 
-## 📈 Learning Outcomes
+##  Learning Outcomes
 
 Through this practice, I aim to:
 
